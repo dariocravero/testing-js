@@ -1,0 +1,26 @@
+{
+  "name": "testing-js-plain",
+  "version": "0.1.0",
+  "description": "testing-js plain",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "author": "Darío Javier Cravero <dario@uxtemple.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.1.11",
+    "immutable": "^3.7.2",
+    "jsdom": "^5.0.1",
+    "marty": "^0.9.11",
+    "marty-test-utils": "^0.1.0",
+    "mocha": "^2.2.4",
+    "mocha-jsdom": "^0.3.0",
+    "mocha-test-utils": "^0.1.1",
+    "proxyquire": "^1.4.0",
+    "react": "^0.13.2",
+    "sinon": "^1.14.1",
+    "sinon-as-promised": "^3.0.0",
+    "synthetic-dom-events": "^0.2.2"
+  }
+}
