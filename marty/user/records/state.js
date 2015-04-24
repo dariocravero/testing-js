@@ -1,8 +1,8 @@
-import { Record } from 'immutable'
+import { Record } from 'immutable';
 
 const State = Record({
   address: undefined,
   email: undefined
-})
+});
 
-export default State
+export default State;

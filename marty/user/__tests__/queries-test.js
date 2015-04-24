@@ -1,8 +1,11 @@
 // The main thing to test in `Queries` is that they trigger the actions we expect them to
-// trigger with the right values in place.
+// trigger with the right values in place and that they return a promise.
 //
 // For that we'll need to get a hold of the `dispatcher` and register ourselves for events triggered
 // there. We also need to clean up our listeners right before the test finishes.
+// We'll use the
+// [onDispatchedAction](https://github.com/dariocravero/marty-test-utils/blob/master/on-dispatched-action.es6)
+// helper from marty-test-utils for that.
 
 import assert from 'assert';
 import Marty from 'marty';

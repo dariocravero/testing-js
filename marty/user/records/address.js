@@ -1,7 +1,7 @@
-import { Record } from 'immutable'
+import { Record } from 'immutable';
 
 const Address = Record({
   city: undefined
-})
+});
 
-export default Address
+export default Address;
