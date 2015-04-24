@@ -6,16 +6,16 @@ Here's a process for testing JavaScript applications.
 
 ```
 # Run all tests
-make test
+npm test
 
 # Run a subset of tests
-make test=plain
+npm test -- plain
 
 # Run an even narrower subset of tests
-make test=marty/user
+npm test -- marty/user debug
 ```
 
-We're using `make`. Here's a sample [Makefile](./Makefile).
+We're using [a simple bash](.bin/test).
 
 ## Tooling
 
