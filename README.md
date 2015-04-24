@@ -11,11 +11,11 @@ npm test
 # Run a subset of tests
 npm test -- plain
 
-# Run an even narrower subset of tests
+# Run an even narrower subset of tests and debug
 npm test -- marty/user debug
 ```
 
-We're using [a simple bash](.bin/test).
+We're using [a simple bash script](.bin/test).
 
 ## Tooling
 
