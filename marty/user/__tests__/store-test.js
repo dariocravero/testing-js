@@ -47,10 +47,14 @@ describe('User store', () => {
     beforeEach(() => Store.replaceState(new State({email: EMAIL})));
 
     // Simple get checkers should 'just' work
-    it('#email', () => assert('email' in Store, 'has property'));
+    it('#email', () => {
+      assert(typeof Object.getOwnPropertyDescriptor(Store.constructor.prototype, 'email').get === 'function', 'has a getter');
+      assert('email' in Store, 'has property');
+    });
 
     // Test fetch scenarios where some property comes from a Query's result
     it('#address', () => {
+      assert(typeof Object.getOwnPropertyDescriptor(Store.constructor.prototype, 'address').get === 'function', 'has a getter');
       assert('address' in Store, 'has property');
 
       // We make sure we have an undefined state for the property so that it will fetch remotely.

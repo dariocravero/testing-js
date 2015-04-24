@@ -27,8 +27,9 @@ const ActionCreators = proxyquire('../action-creators', {
 describe('User action creators', () => {
   it('#setAddress', (done) => {
     onDispatchedAction(dispatcher, wcheck(done, (payload) => {
-      assert(payload.type === Mock.Constants.USER_SET_ADDRESS, 'triggers the right event');
-      assert(payload.arguments[0] === ADDRESS, 'has the right value');
+      assert(payload.type === Mock.Constants.USER_SET_ADDRESS, 'constant');
+      assert(payload.arguments.length === 1, 'argument count');
+      assert(payload.arguments[0] === ADDRESS, 'address value');
     }));
 
     // Trigger the action
@@ -37,8 +38,9 @@ describe('User action creators', () => {
 
   it('#setEmail', (done) => {
     onDispatchedAction(dispatcher, wcheck(done, (payload) => {
-      assert(payload.type === Mock.Constants.USER_SET_EMAIL, 'triggers the right event');
-      assert(payload.arguments[0] === EMAIL, 'has the right value');
+      assert(payload.type === Mock.Constants.USER_SET_EMAIL, 'constant');
+      assert(payload.arguments.length === 1, 'argument count');
+      assert(payload.arguments[0] === EMAIL, 'email value');
     }));
 
     // Trigger the action

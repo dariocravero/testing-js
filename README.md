@@ -19,7 +19,7 @@ We're using [a simple bash script](.bin/test).
 
 ## Tooling
 
-- [Mocha](https://mochajs.org): a testing framework;
+- [mocha](https://mochajs.org): a testing framework;
 - [assert](https://nodejs.org/api/assert.html#assert_assert): an assertion helper;
 - [sinon.js](http://sinonjs.org/): a spying and stubbing helper;
 - [sinon-as-promised](https://github.com/bendrucker/sinon-as-promised): an extension to sinon to stub promises;
@@ -73,7 +73,8 @@ handled somehow and doesn't make the whole thing crash.
 
 - [The simplest test ever](./plain/__tests__/simple-test.js)
 - [Using assert](./plain/__tests__/basic-test.js)
-- Test asynchronous code that uses [callbacks](./plain/__tests__/callback-test.js) or [promises](./plain/__tests__/promise-test.js).
+- Test asynchronous code that uses [callbacks](./plain/__tests__/callback-test.js) or [promises](./plain/__tests__/promise-test.js)
+- [Testing properties defined in classes](./plain/__tests__/klass-test.js).
 
 ## Testing code with dependencies
 
