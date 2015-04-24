@@ -1,3 +1,12 @@
+// The main thing to test in `ActionCreators` is that they trigger the actions we expect them to
+// trigger with the right values in place.
+//
+// For that we'll need to get a hold of the `dispatcher` and register ourselves for events triggered
+// there. We also need to clean up our listeners right before the test finishes.
+//
+// That can get a bit repetitive quite quickly, that's why we'll be using `onDispatchedAction` a
+// helper from `marty-test-utils`.
+
 import assert from 'assert'
 import { Address, State } from '../records'
 import Marty from 'marty'
@@ -25,6 +34,9 @@ let Store = proxyquire('../store', {
 describe('User store', () => {
   // Make sure we clear out the store on every test so that we start with a clean slate.
   beforeEach(() => Store.clear())
+
+  // Make sure our mock gets unregistered. This shouldn't be needed with newer versions of Marty.
+  after(() => Mock.Queries.constructor.unregister())
 
   // Check that the initial state is right. Since we're using [immutable
   // records](http://facebook.github.io/immutable-js/docs/#/Record) for it we check against a new
