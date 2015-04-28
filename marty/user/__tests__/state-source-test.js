@@ -6,7 +6,7 @@
 
 import assert from 'assert';
 import { onDispatchedAction } from 'marty-test-utils';
-import StateSource from '../state-source';
+import stateSource from '../state-source';
 import { check } from 'mocha-test-utils';
 
 const ADDRESS = {city: 'Dublin'};

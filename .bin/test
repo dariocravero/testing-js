@@ -3,7 +3,7 @@
 where=$1 || .
 tests=$1
 if [ -d $where ]; then
-  tests=`find $where -type d -name __tests__ -not -path './node_modules/*'`
+  tests=`find $where -type f -name '*-test.*' -not -path './node_modules/*'`
 fi
 
 ./node_modules/.bin/mocha $2 --compilers js:babel/register $tests

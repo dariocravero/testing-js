@@ -1,10 +1,10 @@
 import Constants from './constants';
 import Marty from 'marty';
-import StateSource from './state-source';
+import stateSource from './state-source';
 
 export class UserQueries extends Marty.Queries {
   getAddress(email) {
-    return StateSource.getAddress(email).then(address => this.dispatch(Constants.USER_SET_ADDRESS, address));
+    return stateSource.getAddress(email).then(address => this.dispatch(Constants.USER_SET_ADDRESS, address));
   }
 }
 

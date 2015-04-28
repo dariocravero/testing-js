@@ -19,21 +19,21 @@ proxyquire.noCallThru();
 const ADDRESS = {city: 'Dublin'};
 const dispatcher = Marty.dispatcher.getDefault();
 const EMAIL = 'my@email.com';
-const Mock = mockCreator(['Constants', 'StateSource']);
-Mock.StateSource.ADDRESS = ADDRESS;
+const mock = mockCreator('Constants', 'stateSource');
+mock.stateSource.ADDRESS = ADDRESS;
 
-const Queries = proxyquire('../queries', {
-  './constants': Mock.Constants,
-  './state-source': Mock.StateSource
+const queries = proxyquire('../queries', {
+  './constants': mock.Constants,
+  './state-source': mock.stateSource
 })['default'];
 
 describe('User queries', () => {
   it('#getAddress', (done) => {
     onDispatchedAction(dispatcher, wcheck(done, (payload) => {
-      assert(payload.type === Mock.Constants.USER_SET_ADDRESS, 'triggers the right event');
+      assert(payload.type === mock.Constants.USER_SET_ADDRESS, 'triggers the right event');
       assert(payload.arguments[0] === ADDRESS, 'has the right value');
     }));
 
-    assert(Queries.getAddress(EMAIL) instanceof Promise, 'returns a promise');
+    assert(queries.getAddress(EMAIL) instanceof Promise, 'returns a promise');
   });
 });

@@ -16,7 +16,7 @@
     "marty-test-utils": "^0.3.0",
     "mocha": "^2.2.4",
     "mocha-jsdom": "^0.3.0",
-    "mocha-test-utils": "^0.2.1",
+    "mocha-test-utils": "^0.3.1",
     "proxyquire": "^1.4.0",
     "react": "^0.13.2",
     "sinon": "^1.14.1",

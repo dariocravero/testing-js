@@ -1,6 +1,6 @@
 import Constants from './constants';
 import Marty from 'marty';
-import Queries from './queries';
+import queries from './queries';
 import { State } from './records';
 
 export class UserStore extends Marty.Store {
@@ -19,7 +19,7 @@ export class UserStore extends Marty.Store {
     return this.fetch({
       id: this.email,
       locally() { return this.state.address; },
-      remotely() { return Queries.getAddress(this.email); }
+      remotely() { return queries.getAddress(this.email); }
     })
   }
   get email() { return this.state.email; }

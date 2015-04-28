@@ -17,33 +17,34 @@ import { wcheck } from 'mocha-test-utils';
 const ADDRESS = {city: 'Dublin'};
 const dispatcher = Marty.dispatcher.getDefault();
 const EMAIL = 'my@email.com';
-const Mock = mockCreator(['Constants']);
+const mock = mockCreator('Constants');
 
 proxyquire.noCallThru();
-const ActionCreators = proxyquire('../action-creators', {
-  './constants': Mock.Constants
+const actionCreators = proxyquire('../action-creators', {
+  './constants': mock.Constants
 })['default'];
 
 describe('User action creators', () => {
   it('#setAddress', (done) => {
     onDispatchedAction(dispatcher, wcheck(done, (payload) => {
-      assert(payload.type === Mock.Constants.USER_SET_ADDRESS, 'constant');
-      assert(payload.arguments.length === 1, 'argument count');
+      assert(payload.type === mock.Constants.USER_SET_ADDRESS, 'constant');
+      assert(payload.arguments.length === 2, 'argument count');
       assert(payload.arguments[0] === ADDRESS, 'address value');
+      assert(payload.arguments[1] === EMAIL, 'id value');
     }));
 
     // Trigger the action
-    ActionCreators.setAddress(ADDRESS);
+    actionCreators.setAddress(ADDRESS, EMAIL);
   });
 
   it('#setEmail', (done) => {
     onDispatchedAction(dispatcher, wcheck(done, (payload) => {
-      assert(payload.type === Mock.Constants.USER_SET_EMAIL, 'constant');
+      assert(payload.type === mock.Constants.USER_SET_EMAIL, 'constant');
       assert(payload.arguments.length === 1, 'argument count');
       assert(payload.arguments[0] === EMAIL, 'email value');
     }));
 
     // Trigger the action
-    ActionCreators.setEmail(EMAIL);
+    actionCreators.setEmail(EMAIL);
   });
 });
