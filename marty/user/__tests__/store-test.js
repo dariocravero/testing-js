@@ -18,8 +18,6 @@ import { onStoreChange } from 'marty-test-utils';
 import proxyquire from 'proxyquire';
 import { wcheck } from 'mocha-test-utils';
 
-proxyquire.noCallThru();
-
 const ADDRESS = new Address({
   city: 'Dublin'
 });
@@ -27,6 +25,7 @@ const dispatcher = Marty.dispatcher.getDefault();
 const EMAIL = 'my@email.com';
 const mock = mockCreator('Constants', 'queries');
 
+proxyquire.noCallThru();
 let store = proxyquire('../store', {
   './constants': mock.Constants,
   './queries': mock.queries
