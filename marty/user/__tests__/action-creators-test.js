@@ -9,7 +9,7 @@
 
 import assert from 'assert';
 import Marty from 'marty';
-import mockCreator from '../__mocks__';;
+import mockCreator from '../__mocks__';
 import { onDispatchedAction } from 'marty-test-utils';
 import proxyquire from 'proxyquire';
 import { wcheck } from 'mocha-test-utils';
@@ -19,7 +19,7 @@ const dispatcher = Marty.dispatcher.getDefault();
 const EMAIL = 'my@email.com';
 const Mock = mockCreator(['Constants']);
 
-proxyquire.noCallThru()
+proxyquire.noCallThru();
 const ActionCreators = proxyquire('../action-creators', {
   './constants': Mock.Constants
 })['default'];

@@ -7,10 +7,21 @@ export class UserStateSource extends Marty.LocalStorageStateSource {
   }
 
   getAddress(email) {
-    return new Promise(resolve => resolve(this.get(email)));
+    return new Promise((resolve) => {
+      const user = this.get(email);
+      const address = user.address || {};
+      resolve(address);
+    });
   }
 
-  setAddress(email, address) { this.set(email, address); }
+  setAddress(email, address) {
+    return new Promise((resolve) => {
+      let user = this.get(email) || {};
+      user.address = address;
+      this.set(email, user);
+      resolve();
+    });
+  }
 }
 
 export default Marty.register(UserStateSource);

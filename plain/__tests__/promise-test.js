@@ -1,15 +1,15 @@
-import assert from 'assert'
-import { promise, promiseThrow } from '../promise'
+import assert from 'assert';
+import { promise, promiseThrow } from '../promise';
 
 // In mocha, done is the key to testing asynchronous code.
 // Make sure your test has it as a parameter.
 it('resolves a promise', (done) => {
   promise().then(() => {
-    assert(true)
+    assert(true);
     // and that you call it when you're done testing stuff
-    done()
-  })
-})
+    done();
+  });
+});
 
 // What about callbacks? [Here you go](../callback-test.js).
 
@@ -32,12 +32,11 @@ it('resolves a promise', (done) => {
 // a last resort and don't really leave this code in your tests (unless you have to test a `reject` on
 // a promise which is totally valid).
 
-it('resolves a promise that throws', (done) => {
+xit('resolves a promise that throws', (done) => {
   promiseThrow().then(() => {
-    assert(true)
-    done()
+    assert(true);
+    done();
   }).catch((err) => {
-    console.error('This promise threw this error:', err)
-    done()
-  })
-})
+    done(err);
+  });
+});

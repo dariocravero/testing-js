@@ -14,7 +14,7 @@ const EMAIL = 'my@email.com';
 
 describe('User state source', () => {
   describe('getters', () => {
-    xit('#getAddress', (done) => {
+    xit('#address', (done) => {
     });
   });
 

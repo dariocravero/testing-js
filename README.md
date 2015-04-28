@@ -9,10 +9,10 @@ Here's a process for testing JavaScript applications.
 npm test
 
 # Run a subset of tests
-npm test -- plain
+npm test plain
 
 # Run an even narrower subset of tests and debug
-npm test -- marty/user debug
+npm test marty/user debug
 ```
 
 We're using [a simple bash script](.bin/test).
