@@ -29,8 +29,8 @@ describe('User action creators', () => {
     onDispatchedAction(dispatcher, wcheck(done, (payload) => {
       assert(payload.type === mock.Constants.USER_SET_ADDRESS, 'constant');
       assert(payload.arguments.length === 2, 'argument count');
-      assert(payload.arguments[0] === ADDRESS, 'address value');
-      assert(payload.arguments[1] === EMAIL, 'id value');
+      assert(payload.arguments[0] === ADDRESS, 'argument 0');
+      assert(payload.arguments[1] === EMAIL, 'argument 1');
     }));
 
     // Trigger the action
@@ -41,7 +41,7 @@ describe('User action creators', () => {
     onDispatchedAction(dispatcher, wcheck(done, (payload) => {
       assert(payload.type === mock.Constants.USER_SET_EMAIL, 'constant');
       assert(payload.arguments.length === 1, 'argument count');
-      assert(payload.arguments[0] === EMAIL, 'email value');
+      assert(payload.arguments[0] === EMAIL, 'argument 1');
     }));
 
     // Trigger the action
